@@ -1,25 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Button, Grid } from "@mui/material";
+import { useState } from "react";
+import CodeEditor from "./editor/CodeEditor";
 
 function App() {
+  let [code, setCode] = useState<string>();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Grid container>
+      <Grid item xs={12} textAlign="center" fontSize="2em" height="10vh"
+        sx={{
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
+        <Grid container>
+          <Grid item xs={6}>
+            Code Rule Verifier
+          </Grid>
+          <Grid item xs={6}>
+            <Button variant="contained" color="primary">
+              Verify Code!
+            </Button>
+          </Grid>
+        </Grid>
+      </Grid>
+      <Grid item xs={8} height="90vh">
+        <CodeEditor value={code} onChange={code => setCode(code)} />
+      </Grid>
+    </Grid>
   );
 }
 
