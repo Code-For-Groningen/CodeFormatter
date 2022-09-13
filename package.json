@@ -1,7 +1,7 @@
 {
   "name": "code-formatter",
   "version": "0.1.0",
-  "homepage": "https://code-for-groningen.github.io/code-formatter",
+  "homepage": "https://code-for-groningen.github.io/CodeFormatter/",
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
