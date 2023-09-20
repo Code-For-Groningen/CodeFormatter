@@ -1,6 +1,8 @@
 import { Button, Grid } from "@mui/material";
 import { useState } from "react";
 import CodeEditor from "./editor/CodeEditor";
+import { formatCode } from "./backend/CodeFormattingBackend";
+
 
 function App() {
   let [code, setCode] = useState<string>();
@@ -18,7 +20,12 @@ function App() {
             Code Rule Verifier
           </Grid>
           <Grid item xs={6}>
-            <Button variant="contained" color="primary">
+            <Button variant="contained" color="primary" onClick={async () => {
+              if (!code) return;
+              let formattedCode = await formatCode(code);
+              console.log(formattedCode);
+              setCode(formattedCode);
+            }}>
               Verify Code!
             </Button>
           </Grid>
