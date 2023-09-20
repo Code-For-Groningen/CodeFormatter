@@ -55,7 +55,7 @@ var SkeletonVerifier: CodeVerifier = {
         }
 
         // Check if the fourth line is correct
-        if (!code[3].startsWith("/* version: ") || !code[3].endsWith(" */")) {
+        if (!code[3].startsWith("/* version : ") || !code[3].endsWith(" */")) {
             warnings.push({
                 line: 4,
                 message: "The fourth line of the code should be /* version: <any version> */",
