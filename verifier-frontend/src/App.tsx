@@ -30,6 +30,9 @@ function runVerifiers(formattedCode: string): CodeWarning[] {
 }
 
 function preFormatCode(code: string): string {
+  // Replace \r\n with \n
+  code = code.replace("\r\n", "\n");
+
   // Remove leading empty lines
   let splitCode = code.split("\n");
   while (splitCode[0].trim() === "") {
@@ -144,12 +147,12 @@ function App() {
           <CodeEditor value={code} onChange={code => setCode(code)} />
         </Grid>
         <Grid item xs={4} height="90vh" p={2}>
-          {currentWarnings.length == 0 ? 
-          <CodeWarningOkay /> : 
-          currentWarnings.map((warning, index) => <CodeWarningComponent key={index}
-            warning={warning} onDelete={() => {
-              setCurrentWarnings(currentWarnings.filter(w => w !== warning));
-            }} />)}
+          {currentWarnings.length == 0 ?
+            <CodeWarningOkay /> :
+            currentWarnings.map((warning, index) => <CodeWarningComponent key={index}
+              warning={warning} onDelete={() => {
+                setCurrentWarnings(currentWarnings.filter(w => w !== warning));
+              }} />)}
         </Grid>
       </Grid>
     </ThemeProvider>

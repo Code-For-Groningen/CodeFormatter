@@ -5,14 +5,14 @@ var LibraryVerifier: CodeVerifier = {
         let warnings = [] as CodeWarning[];
 
         // Check for #include <stdlib.h> and #include <stdio.h>
-        if (!code.includes("#include <stdlib.h>")) {
+        if (!code.findIndex(line => line.includes("#include <stdlib.h>"))) {
             warnings.push({
                 line: 0,
                 message: "Missing #include <stdlib.h>",
             });
         }
 
-        if (!code.includes("#include <stdio.h>")) {
+        if (!code.findIndex(line => line.includes("#include <stdio.h>"))) {
             warnings.push({
                 line: 0,
                 message: "Missing #include <stdio.h>",
