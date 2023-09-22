@@ -31,7 +31,7 @@ function runVerifiers(formattedCode: string): CodeWarning[] {
 
 function preFormatCode(code: string): string {
   // Replace \r\n with \n
-  code = code.replace("\r\n", "\n");
+  code = code.replace(/\r\n/g, "\n");
 
   // Remove leading empty lines
   let splitCode = code.split("\n");
