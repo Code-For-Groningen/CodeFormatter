@@ -1,10 +1,10 @@
 import CodeVerifier, { CodeWarning } from "../CodeVerifier";
 
-var CheckForDoubleSemicolonsVerifier : CodeVerifier = {
+var CheckForDoubleSemicolonsVerifier: CodeVerifier = {
     verify(code) {
         let warnings = [] as CodeWarning[];
         code.forEach((line, index) => {
-            if(line.includes(";;")) {
+            if (line.trim().startsWith(";")) {
                 warnings.push({
                     line: index + 1,
                     message: "Double semicolon found"

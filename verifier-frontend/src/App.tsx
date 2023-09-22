@@ -11,6 +11,7 @@ import FindSemiColonAfterBracketsVerifier from "./verifiers/instances/FindSemiCo
 import EnsureCommentsExistCodeVerifier from "./verifiers/instances/EnsureCommentsExistCodeVerifier";
 import EnsureBracketsInStatementsVerifier from "./verifiers/instances/EnsureBracketsInStatementsVerifier";
 import CheckForDoubleSemicolonsVerifier from "./verifiers/instances/CheckForDoubleSemicolonsVerifier";
+import LineLengthVerifier from "./verifiers/instances/LineLengthVerifier";
 
 const verifierList = [
   LibraryVerifier,
@@ -20,6 +21,7 @@ const verifierList = [
   EnsureCommentsExistCodeVerifier,
   EnsureBracketsInStatementsVerifier,
   CheckForDoubleSemicolonsVerifier,
+  LineLengthVerifier
 ];
 
 function runVerifiers(formattedCode: string): CodeWarning[] {

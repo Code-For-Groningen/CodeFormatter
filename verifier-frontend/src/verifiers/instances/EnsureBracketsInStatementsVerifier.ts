@@ -2,7 +2,7 @@ import CodeVerifier, { CodeWarning } from "../CodeVerifier";
 
 
 const expectedKeywords = [
-    "while", "for", "if", "else", "do", "switch"
+    "while (", "for (", "if (", "else ", "do {", "switch ("
 ];
 
 var EnsureBracketsInStatementsVerifier: CodeVerifier = {
