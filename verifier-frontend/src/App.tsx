@@ -9,13 +9,17 @@ import SkeletonVerifier from "./verifiers/instances/SkeletonVerifier";
 import IntMainParamVerifier from "./verifiers/instances/IntMainParamVerifier";
 import FindSemiColonAfterBracketsVerifier from "./verifiers/instances/FindSemiColonAfterBracketsVerifier";
 import EnsureCommentsExistCodeVerifier from "./verifiers/instances/EnsureCommentsExistCodeVerifier";
+import EnsureBracketsInStatementsVerifier from "./verifiers/instances/EnsureBracketsInStatementsVerifier";
+import CheckForDoubleSemicolonsVerifier from "./verifiers/instances/CheckForDoubleSemicolonsVerifier";
 
 const verifierList = [
   LibraryVerifier,
   SkeletonVerifier,
   IntMainParamVerifier,
   FindSemiColonAfterBracketsVerifier,
-  EnsureCommentsExistCodeVerifier
+  EnsureCommentsExistCodeVerifier,
+  EnsureBracketsInStatementsVerifier,
+  CheckForDoubleSemicolonsVerifier,
 ];
 
 function runVerifiers(formattedCode: string): CodeWarning[] {
