@@ -9,13 +9,19 @@ import SkeletonVerifier from "./verifiers/instances/SkeletonVerifier";
 import IntMainParamVerifier from "./verifiers/instances/IntMainParamVerifier";
 import FindSemiColonAfterBracketsVerifier from "./verifiers/instances/FindSemiColonAfterBracketsVerifier";
 import EnsureCommentsExistCodeVerifier from "./verifiers/instances/EnsureCommentsExistCodeVerifier";
+import EnsureBracketsInStatementsVerifier from "./verifiers/instances/EnsureBracketsInStatementsVerifier";
+import CheckForDoubleSemicolonsVerifier from "./verifiers/instances/CheckForDoubleSemicolonsVerifier";
+import LineLengthVerifier from "./verifiers/instances/LineLengthVerifier";
 
 const verifierList = [
   LibraryVerifier,
   SkeletonVerifier,
   IntMainParamVerifier,
   FindSemiColonAfterBracketsVerifier,
-  EnsureCommentsExistCodeVerifier
+  EnsureCommentsExistCodeVerifier,
+  EnsureBracketsInStatementsVerifier,
+  CheckForDoubleSemicolonsVerifier,
+  LineLengthVerifier
 ];
 
 function runVerifiers(formattedCode: string): CodeWarning[] {
@@ -31,7 +37,7 @@ function runVerifiers(formattedCode: string): CodeWarning[] {
 
 function preFormatCode(code: string): string {
   // Replace \r\n with \n
-  code = code.replace("\r\n", "\n");
+  code = code.replace(/\r\n/g, "\n");
 
   // Remove leading empty lines
   let splitCode = code.split("\n");

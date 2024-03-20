@@ -12,7 +12,7 @@ var SkeletonVerifier: CodeVerifier = {
         // Check if the first line is correct
         let warnings = [] as CodeWarning[];
 
-        if (!code[0].startsWith("/* file : ") || !code[0].endsWith(".c */")) {
+        if (!code[0].trimStart().startsWith("/* file") || !code[0].endsWith(".c */")) {
             warnings.push({
                 line: 1,
                 message: "The first line of the code should be /* file : <any file name>.c */",
@@ -20,7 +20,7 @@ var SkeletonVerifier: CodeVerifier = {
         }
 
         // Check if the second line is correct
-        if (!code[1].startsWith("/* author : ") || !code[1].endsWith(" */")) {
+        if (!code[1].trimStart().startsWith("/* author") || !code[1].includes("*/")) {
             warnings.push({
                 line: 2,
                 message: "The second line of the code should be /* author : <your name> (<your email>) */",
@@ -37,7 +37,7 @@ var SkeletonVerifier: CodeVerifier = {
         }
 
         // Check if the third line is correct
-        if (!code[2].startsWith("/* date : ") || !code[2].endsWith(" */")) {
+        if (!code[2].trimStart().startsWith("/* date") || !code[2].includes("*/")) {
             warnings.push({
                 line: 3,
                 message: "The third line of the code should be /* date : <any date> */",
@@ -55,7 +55,7 @@ var SkeletonVerifier: CodeVerifier = {
         }
 
         // Check if the fourth line is correct
-        if (!code[3].startsWith("/* version : ") || !code[3].endsWith(" */")) {
+        if (!code[3].trimStart().startsWith("/* version") || !code[3].includes("*/")) {
             warnings.push({
                 line: 4,
                 message: "The fourth line of the code should be /* version : <any version> */",
